@@ -1,11 +1,10 @@
-
 import React from 'react';
 
 export const Spinner: React.FC = () => {
     return (
-        <div className="flex flex-col items-center justify-center space-y-2">
+        <div className="flex flex-col items-center justify-center space-y-4">
             <svg
-                className="animate-spin h-8 w-8 text-blue-600"
+                className="animate-spin h-10 w-10 text-blue-600"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -24,7 +23,7 @@ export const Spinner: React.FC = () => {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 ></path>
             </svg>
-            <p className="text-slate-600 text-sm">AI đang lên kế hoạch...</p>
+            <p className="text-gray-600 text-base">AI đang lên kế hoạch...</p>
         </div>
     );
 };

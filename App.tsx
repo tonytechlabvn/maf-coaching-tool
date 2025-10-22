@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { RunningForm } from './components/RunningForm';
 import { PlanDisplay } from './components/PlanDisplay';
@@ -28,22 +27,22 @@ const App: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-slate-50 to-gray-100">
-            <div className="w-full max-w-3xl mx-auto">
+        <div className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 bg-gray-50">
+            <div className="w-full max-w-6xl mx-auto">
                 <Header />
-                <main className="mt-8">
-                    <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200">
+                <main className="mt-10">
+                    <div className="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-gray-200">
                         <RunningForm onSubmit={handleGeneratePlan} isLoading={isLoading} />
                     </div>
                     
-                    <div className="mt-8">
+                    <div className="mt-10">
                         {isLoading && (
-                            <div className="flex justify-center items-center p-8">
+                            <div className="flex justify-center items-center p-12">
                                 <Spinner />
                             </div>
                         )}
                         {error && (
-                            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
+                            <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl relative text-lg" role="alert">
                                 <strong className="font-bold">Lỗi! </strong>
                                 <span className="block sm:inline">{error}</span>
                             </div>
