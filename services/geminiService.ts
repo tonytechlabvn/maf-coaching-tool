@@ -3,9 +3,6 @@ import { GoogleGenAI, Type } from "@google/genai";
 import type { RunningPlan, UserInput } from '../types';
 import { BASE_PROMPT } from '../constants';
 
-// Sử dụng một placeholder đặc biệt sẽ được thay thế bởi entrypoint.sh khi container khởi động.
-const ai = new GoogleGenAI({ apiKey: "__GEMINI_API_KEY__" });
-
 const planSchema = {
     type: Type.OBJECT,
     properties: {
@@ -135,7 +132,13 @@ const calculateBMI = (weight: string, height: string): string => {
 };
 
 
-export const generatePlan = async (userInput: UserInput): Promise<RunningPlan> => {
+export const generatePlan = async (userInput: UserInput, apiKey: string): Promise<RunningPlan> => {
+    if (!apiKey) {
+        throw new Error("API key is missing.");
+    }
+    
+    const ai = new GoogleGenAI({ apiKey });
+
     try {
         const statusDescription = buildStatusDescription(userInput);
         const bmi = calculateBMI(userInput.weight, userInput.height);
@@ -190,6 +193,9 @@ export const generatePlan = async (userInput: UserInput): Promise<RunningPlan> =
 
     } catch (error) {
         console.error("Error generating plan from Gemini:", error);
+        if (error instanceof Error && (error.message.includes('API key not valid') || error.message.includes('API_KEY_INVALID'))) {
+            throw new Error("API key not valid. Please check your key.");
+        }
         throw new Error("Failed to generate running plan.");
     }
 };
