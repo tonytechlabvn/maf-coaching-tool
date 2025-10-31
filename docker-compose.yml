@@ -5,7 +5,7 @@ services:
     build: .
     container_name: maf-coach-frontend
     ports:
-      - "8080:80"
+      - "8888:80"
     environment:
       # Truyền biến môi trường API_KEY từ tệp .env (hoặc từ môi trường của máy chủ)
       # vào bên trong container.
