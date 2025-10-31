@@ -3,7 +3,8 @@ import { GoogleGenAI, Type } from "@google/genai";
 import type { RunningPlan, UserInput } from '../types';
 import { BASE_PROMPT } from '../constants';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Sử dụng một placeholder đặc biệt sẽ được thay thế bởi entrypoint.sh khi container khởi động.
+const ai = new GoogleGenAI({ apiKey: "__GEMINI_API_KEY__" });
 
 const planSchema = {
     type: Type.OBJECT,

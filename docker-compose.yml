@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  maf-coach-frontend:
+    build: .
+    container_name: maf-coach-frontend
+    ports:
+      - "8080:80"
+    environment:
+      # Truyền biến môi trường API_KEY từ tệp .env (hoặc từ môi trường của máy chủ)
+      # vào bên trong container.
+      - API_KEY=${API_KEY}
+    restart: unless-stopped
