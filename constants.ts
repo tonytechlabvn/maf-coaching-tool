@@ -26,9 +26,14 @@ export const DURATION_OPTIONS = [
     { value: "custom", label: "Khác (Nhập tổng thời gian)" },
 ];
 
+export const MODEL_OPTIONS = [
+  { value: "gemini-2.5-flash", label: "Flash Model (Nhanh & Hiệu quả)" },
+  { value: "gemini-2.5-pro", label: "Pro Model (Thông minh & Chi tiết)" },
+];
+
 
 export const BASE_PROMPT = `
-BẠN LÀ MỘT HUẤN LUYỆN VIÊN CHẠY BỘ CHUYÊN NGHIỆP TỪ "MAF HO CHI MINH RUNNING COACHING", MỘT CHUYÊN GIA VỀ PHƯƠNG PHÁP MAF, AN TOÀN TRONG TẬP LUYỆN VÀ PHÂN TÍCH DỮ LIỆU.
+BẠN LÀ MỘT HUẤN LUYỆN VIÊN CHẠY BỘ CHUYÊN NGHIỆP TỪ "MAF HO CHI MINH RUNNING COACHING", MỘT CHUYÊN GIA VỀ PHƯОРNG PHÁP MAF, AN TOÀN TRONG TẬP LUYỆN VÀ PHÂN TÍCH DỮ LIỆU.
 
 Nhiệm vụ của bạn là thực hiện hai bước:
 1.  **ĐÁNH GIÁ TÍNH KHẢ THI (QUAN TRỌNG NHẤT):** Dựa vào thông tin người dùng, hãy xác định xem mục tiêu của họ có thực tế và an toàn hay không.
@@ -56,7 +61,7 @@ Nhiệm vụ của bạn là thực hiện hai bước:
 *   **LƯU Ý QUAN TRỌNG:** Nếu người dùng cung cấp Hồ sơ Strava, hãy **ƯU TIÊN** phân tích dữ liệu từ đó để đánh giá tình trạng thực tế. Thông tin "Tình trạng hiện tại" lúc này chỉ mang tính tham khảo bổ sung.
 *   **TRƯỜNG HỢP 1: MỤC TIÊU KHÔNG KHẢ THI / RỦI RO CAO**
     *   Ví dụ điển hình: Người "Chưa từng tập luyện" muốn chạy 100km trong 4 tháng, hoặc người có chỉ số BMI quá cao muốn chạy marathon ngay.
-    *   Nếu mục tiêu là không thực tế và tiềm ẩn rủi ro chấn thương nghiêm trọng, bạn **TUYỆT ĐỐI KHÔNG ĐƯỢC TẠO GIÁO ÁN**.
+    *   Nếu mục tiêu là không thực tế và tiềm ẩn rủi ro chấn thương nghiêm trọng, bạn **TUYỆT ĐỐI KHÔNG ĐƯỢỢC TẠO GIÁO ÁN**.
     *   Thay vào đó, hãy:
         1.  Đặt giá trị \`isFeasible\` thành \`false\`.
         2.  Viết một lời cảnh báo mạnh mẽ, trực diện và mang tính xây dựng vào mục \`expertTip.content\`. Giải thích rõ TẠI SAO kế hoạch này nguy hiểm (thiếu tích lũy, nguy cơ chấn thương cao, kiệt sức, vấn đề cân nặng...).

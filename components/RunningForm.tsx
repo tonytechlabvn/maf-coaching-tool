@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import type { UserInput } from '../types';
-import { GOAL_OPTIONS, STATUS_OPTIONS, DURATION_OPTIONS } from '../constants';
+import { GOAL_OPTIONS, STATUS_OPTIONS, DURATION_OPTIONS, MODEL_OPTIONS } from '../constants';
 
 interface RunningFormProps {
     onSubmit: (data: UserInput) => void;
@@ -40,6 +40,7 @@ export const RunningForm: React.FC<RunningFormProps> = ({ onSubmit, isLoading })
     const [trainingDuration, setTrainingDuration] = useState<string>(DURATION_OPTIONS[0].value);
     const [customTrainingDuration, setCustomTrainingDuration] = useState<string>('');
     const [stravaProfile, setStravaProfile] = useState<string>('');
+    const [model, setModel] = useState<string>(MODEL_OPTIONS[0].value);
 
     const availableStatusOptions = useMemo(() => {
         if (stravaProfile.trim() !== '') {
@@ -86,7 +87,8 @@ export const RunningForm: React.FC<RunningFormProps> = ({ onSubmit, isLoading })
             stravaProfile,
             weight,
             height,
-            gender
+            gender,
+            model
         });
     };
     
@@ -203,6 +205,16 @@ export const RunningForm: React.FC<RunningFormProps> = ({ onSubmit, isLoading })
                         </div>
                     )}
                 </div>
+            </FormSection>
+
+            <FormSection title="4. Tùy chọn AI Coach">
+                 <FormField label="Chọn Model AI" htmlFor="model">
+                    <select id="model" name="model" value={model} onChange={(e) => setModel(e.target.value)} className={inputStyles}>
+                        {MODEL_OPTIONS.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </FormField>
             </FormSection>
 
             <div className="pt-8 border-t">

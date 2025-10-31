@@ -14,6 +14,7 @@ export interface UserInput {
   weight: string;
   height: string;
   gender: string;
+  model: string;
 }
 
 export interface DailyPlan {
