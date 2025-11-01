@@ -4,6 +4,7 @@ metadata:
   name: maf-ingress
   namespace: maf-tool
 spec:
+  ingressClassName: nginx 
   rules:
   - host: "maf.tonytechlab.com" # Khớp với APP_HOST_URL
     http:
@@ -14,4 +15,5 @@ spec:
           service:
             name: maf-coaching-tool-svc # Trỏ vào ClusterIP service
             port:
+
               number: 80
