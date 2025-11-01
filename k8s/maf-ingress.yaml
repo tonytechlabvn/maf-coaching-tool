@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: maf-ingress
+  namespace: maf-tool
+spec:
+  rules:
+  - host: "maf.tonytechlab.com" # Khớp với APP_HOST_URL
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: maf-coaching-tool-svc # Trỏ vào ClusterIP service
+            port:
+              number: 80
